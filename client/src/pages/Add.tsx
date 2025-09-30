@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Input from "../components/Input";
+import Button from "../components/Button";
 
 const Add = () => {
   const API_URL = import.meta.env.VITE_API_URL;
@@ -28,33 +30,23 @@ const Add = () => {
   };
 
   return (
-    <div className="form">
-      <h1>Add New Book</h1>
-      <input
-        type="text"
-        placeholder="title"
-        onChange={handleChange}
-        name="book_title"
-      />
-      <input
-        type="text"
-        placeholder="desc"
-        onChange={handleChange}
+    <div className="flex flex-col gap-2.5 items-center min-h-screen justify-center">
+      <h1 className="text-3xl font-bold mb-5">Add New Book</h1>
+      <Input placeholder="Title" name="book_title" onChange={handleChange} />
+      <Input
+        isTextArea
+        placeholder="Description"
         name="book_desc"
-      />
-      <input
-        type="text"
-        placeholder="cover"
         onChange={handleChange}
-        name="book_cover"
       />
-      <input
+      <Input type="file" name="book_cover" onChange={handleChange} />
+      <Input
         type="number"
-        placeholder="price"
-        onChange={handleChange}
+        placeholder="Price"
         name="book_price"
+        onChange={handleChange}
       />
-      <button onClick={handleClick}>Add</button>
+      <Button text="Update" type="update" onClick={handleClick} />
     </div>
   );
 };

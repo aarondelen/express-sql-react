@@ -47,6 +47,13 @@ app.post("/books", (req, res) => {
     req.body.book_price
   ];
 
+  // const values = [
+  //   "Sample Book Title",
+  //   "This is a sample description of the book.",
+  //   "https://example.com/sample-book-cover.jpg",
+  //   19.99
+  // ];
+
   db.query(q, [values], (err, data) => {
     if (err) {
       console.error("Query error:", err);
